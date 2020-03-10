@@ -1,19 +1,14 @@
 import numpy as np
-from keras.models import load_model
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, Dropout, Flatten, MaxPooling2D
 import tensorflow as tf
-import matplotlib.pyplot as plt
 
 def main():
     Xtest = np.load('MNIST_X_test_1.npy')
     ytest = np.load('MNIST_y_test_1.npy')
     Xtrain = np.load('MNISTXtrain1.npy')
     ytrain = np.load('MNISTytrain1.npy')
-    imageindex  = 7777
-    #print(ytrain[imageindex])
-    #plt.imshow(Xtrain[imageindex], cmap='Greys')
-    #print(Xtrain.shape)
+
     # Reshaping the array to 4-dims so that it can work with the Keras API
     Xtrain = Xtrain.reshape(Xtrain.shape[0], 28, 28, 1)
     Xtest = Xtest.reshape(Xtest.shape[0], 28, 28, 1)
@@ -24,9 +19,6 @@ def main():
     # Normalizing the RGB codes by dividing it to the max RGB value.
     Xtrain /= 255
     Xtest /= 255
-    print('x_train shape:', Xtrain.shape)
-    print('Number of images in x_train', Xtrain.shape[0])
-    print('Number of images in x_test', Xtest.shape[0])
 
     # Model 1: Basic 2-hidden-layer, based on theoretical minimum layer needed to solve any problem. Ignores dimensions.
     model1 = Sequential()
