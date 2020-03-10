@@ -28,7 +28,7 @@ def main():
     model1.add(Dense(10))
 
     model1.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-    model1.fit(x=Xtrain, y=ytrain, epochs=10)
+    model1.fit(x=Xtrain, y=ytrain, epochs=5)
 
     # Model 2: Intermediate model using 2D layers for better image comprehension. Like model 3, without activations.
     model2 = Sequential()
@@ -73,10 +73,13 @@ def main():
     loss, acc3 = model.evaluate(Xtest, ytest)
     loss, acc4 = model4.evaluate(Xtest, ytest)
 
-    pred1 = model1.predict(Xtest)
-    pred2 = model2.predict(Xtest)
-    pred3 = model.predict(Xtest)
-    pred4 = model4.predict(Xtest)
+
+
+
+    pred1 = model1.predict_classes(Xtest)
+    pred2 = model2.predict_classes(Xtest)
+    pred3 = model.predict_classes(Xtest)
+    pred4 = model4.predict_classes(Xtest)
 
     score1 = f1_score(ytest, pred1, average='weighted')
     score2 = f1_score(ytest, pred2, average='weighted')
