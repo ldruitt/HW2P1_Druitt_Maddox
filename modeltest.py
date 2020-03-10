@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import numpy as np
-from keras.models import load_model
 import sys
 import tensorflow as tf
 
@@ -17,7 +16,7 @@ def main():
     print("Loading Model")
     model = tf.keras.models.load_model('MyBestModel_00956434_01023420.h5')
     print('run')
-    y = model.predict(X)
+    y = model.predict_classes(X)
     print(y[0])
 
 
