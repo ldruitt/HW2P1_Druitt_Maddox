@@ -1,0 +1,17 @@
+Grid Search for best params with 1000 point sample
+
+linear kernel:
+score = 0.838
+best params = {'SVM__C': 0.01, 'SVM__gamma': 1000}
+
+poly kernel:
+score = 0.82
+best params = {'SVM__C': 0.0001, 'SVM__gamma': 1000}
+
+rbf kernel:
+score = 0.099
+best params = {'SVM__C': 0.0001, 'SVM__gamma': 10}
+
+sigmoid kernel:
+score = 0.454
+best params = {'SVM__C': 0.01, 'SVM__gamma': 1000}
