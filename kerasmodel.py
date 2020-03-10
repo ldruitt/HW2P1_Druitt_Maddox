@@ -2,6 +2,7 @@ import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, Dropout, Flatten, MaxPooling2D
 import tensorflow as tf
+from sklearn.metrics import f1_score
 
 def main():
     Xtest = np.load('MNIST_X_test_1.npy')
@@ -67,10 +68,20 @@ def main():
     model4.fit(x=Xtrain, y=ytrain, epochs=10)
 
     # Evaluate the models.
-    score1, acc1 = model1.evaluate(Xtest, ytest)
-    score2, acc2 = model2.evaluate(Xtest, ytest)
-    score3, acc3 = model.evaluate(Xtest, ytest)
-    score4, acc4 = model4.evaluate(Xtest, ytest)
+    loss, acc1 = model1.evaluate(Xtest, ytest)
+    loss, acc2 = model2.evaluate(Xtest, ytest)
+    loss, acc3 = model.evaluate(Xtest, ytest)
+    loss, acc4 = model4.evaluate(Xtest, ytest)
+
+    pred1 = model1.predict(Xtest)
+    pred2 = model2.predict(Xtest)
+    pred3 = model.predict(Xtest)
+    pred4 = model4.predict(Xtest)
+
+    score1 = f1_score(ytest, pred1, average='weighted')
+    score2 = f1_score(ytest, pred2, average='weighted')
+    score3 = f1_score(ytest, pred3, average='weighted')
+    score4 = f1_score(ytest, pred4, average='weighted')
 
     print("Model 1 score/accuracy: " + str(score1) + ", " + str(acc1))
     print("Model 2 score/accuracy: " + str(score2) + ", " + str(acc2))
