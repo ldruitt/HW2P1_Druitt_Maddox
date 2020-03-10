@@ -5,6 +5,7 @@ from sklearn.pipeline import Pipeline
 from sklearn import metrics, svm
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.externals import joblib
 
 def main():
     Xtest = np.load('MNIST_X_test_1.npy')
@@ -19,6 +20,7 @@ def main():
 
     Xtrain = Xtrain.reshape(Xtrain.shape[0], -1)
     Xtest = Xtest.reshape(Xtest.shape[0], -1)
+
 
 
 #    steps = [('scaler', StandardScaler()), ('SVM', SVC(kernel='sigmoid'))]
@@ -45,6 +47,9 @@ def main():
     print('Accuracy of classifier 1: %0.2f' % (scores1.mean()))
     print('Accuracy of classifier 2: %0.2f' % (scores2.mean()))
     print('Accuracy of classifier 3: %0.2f' % (scores3.mean()))
+
+    joblib.dump(clf2, 'MyBestModel_00956434_.pkl')
+
 
 if __name__ == '__main__':
     main()

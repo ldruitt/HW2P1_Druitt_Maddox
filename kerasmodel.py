@@ -85,5 +85,7 @@ def main():
     print("Model 3 score/accuracy: " + str(score3) + ", " + str(acc3))
     print("Model 4 score/accuracy: " + str(score4) + ", " + str(acc4))
 
+    model4.save('MyBestModel_00956434_01023420.h5')  # creates a HDF5 file
+
 if __name__ == '__main__':
     main()
