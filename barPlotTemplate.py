@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 # length of these lists determine the number
 # of groups (they must all be the same length)
 bars1 = [10.8, 11.3, 98.5, 99.0, 87, 88, 12]
-bars2 = [0, 0, 0, 0, 87, 87, 2]
+bars2 = [13.8, 9.2, 98.5, 99.1, 87, 87, 2]
 
 # set width of bar. To work and supply some padding
 # the number of groups times barWidth must be
