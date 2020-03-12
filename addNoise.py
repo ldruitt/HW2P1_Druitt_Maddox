@@ -11,7 +11,7 @@ def main():
 
     # make the script read the parameters (fill this out)
     inputFile = sys.argv[1]
-    sigma = sys.argv[2]
+    sigma = int(sys.argv[2])
     outputFile = sys.argv[3]
     # call the input matrix inMatrix
     inMatrix = np.load(inputFile)
