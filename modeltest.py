@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import numpy as np
 import sys
 import tensorflow as tf
@@ -14,10 +13,15 @@ def main():
     # Normalizing the RGB codes by dividing it to the max RGB value.
     X /= 255
     print("Loading Model")
-    model = tf.keras.models.load_model('MyBestModel_00956434_01023420.h5')
+    model = tf.keras.models.load_model('MyBestModel_00956434_01023420.h5', custom_objects={'softmax_v2': tf.nn.softmax})
     print('run')
     y = model.predict_classes(X)
-    print(y[0])
+    print(y)
+    outputString = "\n".join(map(str,y))
+    outputFile = open('output.txt', 'w')
+    outputFile.write(outputString)
+    outputFile.close()
+
 
 
 if __name__ == '__main__':
